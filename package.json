@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "yarn run lint -- --fix",
     "test": "jest --detectOpenHandles --watch --coverage"
   },
   "devDependencies": {
