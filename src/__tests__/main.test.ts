@@ -33,13 +33,13 @@ describe('Mars rover testing', () => {
     test('Rover should apply the command L to to turn left ', () => {
       const rover = new Rover(1, 0, 'NORTH');
       rover.applyTurnCommand('L');
-      expect(rover.getLocationAsString()).toEqual('(1, -1) WEST');
+      expect(rover.getLocationAsString()).toEqual('(1, 0) WEST');
     });
 
     test('Rover should apply the command R to to turn left ', () => {
       const rover = new Rover(7, 8, 'EAST');
       rover.applyTurnCommand('R');
-      expect(rover.getLocationAsString()).toEqual('(1, -1) SOUTH');
+      expect(rover.getLocationAsString()).toEqual('(7, 8) SOUTH');
     });
   });
 });

@@ -2,6 +2,9 @@ type Direction = 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
 type Move = 'F' | 'B';
 type Turn = 'L' | 'R';
 
+const directions: Direction[] = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
+const turnCommands: Turn[] = ['L', 'R'];
+
 const commandsLookup = {
   NORTHF: [0, 1],
   NORTHB: [0, -1],
@@ -13,4 +16,17 @@ const commandsLookup = {
   WESTB: [1, 0],
 };
 
-export { commandsLookup, Direction, Move, Turn };
+const turnDirection = (index: number, acc: number): number => {
+  const dirLength = directions.length;
+  return (((index + acc) % dirLength) + dirLength) % dirLength;
+};
+
+export {
+  commandsLookup,
+  turnDirection,
+  turnCommands,
+  directions,
+  Direction,
+  Move,
+  Turn,
+};
