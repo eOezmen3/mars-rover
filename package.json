@@ -1,0 +1,31 @@
+{
+  "name": "mars-rover",
+  "version": "1.0.0",
+  "description": "Mars project in order to land and commands vehicles on the red planet",
+  "main": "main.ts",
+  "repository": "https://github.com/eOezmen3/mars-rover.git",
+  "author": "emreoezmen <emreykal@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },  
+  "lint-staged": {
+    "*.{js,ts,ts}": [
+      "eslint --fix"
+    ]
+  }
+}
