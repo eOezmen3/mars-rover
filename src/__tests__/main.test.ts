@@ -6,8 +6,8 @@ describe('Mars rover testing', () => {
     expect(rover).toBeTruthy();
   });
 
-  test('The rover has a to toString method which returns its coords and direction', () => {
+  test('A rover has a to toString method which returns its coords and direction', () => {
     const rover = new Rover(3, 6, 'WEST');
-    expect(rover.locationAsString()).toEqual('(3, 6) WEST');
+    expect(rover.getLocationAsString()).toEqual('(3, 6) WEST');
   });
 });

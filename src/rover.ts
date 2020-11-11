@@ -1,6 +1,6 @@
 type Direction = 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
 
-export class Rover {
+class Rover {
   private x: number;
   private y: number;
   private direction: Direction;
@@ -8,6 +8,10 @@ export class Rover {
     this.x = x;
     this.y = y;
     this.direction = direction;
+  }
+
+  getLocationAsString(): string {
+    return ['(', this.x, ', ', this.y, ') ', this.direction].join('');
   }
 }
 
