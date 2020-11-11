@@ -31,6 +31,10 @@ class Rover {
     return ['(', this.x, ', ', this.y, ') ', this.direction].join('');
   }
 
+  applyCommands(commands: (Move | Turn)[]): void {
+    [...commands].every((c) => this.applySingleCommand(c));
+  }
+
   applySingleCommand(command: Move | Turn): boolean {
     if (command === 'L' || command === 'R') {
       this.setDirection(this.applyTurnCommand(command));
@@ -41,6 +45,7 @@ class Rover {
     }
     return true;
   }
+
   applyMoveCommand(command: Move): number[] {
     const moveRover: number = commandsLookup[this.direction + command];
 
