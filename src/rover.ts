@@ -31,20 +31,28 @@ class Rover {
     return ['(', this.x, ', ', this.y, ') ', this.direction].join('');
   }
 
-  applyMoveCommand(command: Move): boolean {
-    const moveRover: number = commandsLookup[this.direction + command];
-    this.setX(this.x + moveRover[0]);
-    this.setY(this.y + moveRover[1]);
+  applySingleCommand(command: Move | Turn): boolean {
+    if (command === 'L' || command === 'R') {
+      this.setDirection(this.applyTurnCommand(command));
+    } else {
+      const move = this.applyMoveCommand(command);
+      this.setX(move[0]);
+      this.setY(move[1]);
+    }
     return true;
   }
+  applyMoveCommand(command: Move): number[] {
+    const moveRover: number = commandsLookup[this.direction + command];
 
-  applyTurnCommand(command: Turn): boolean {
+    return [this.x + moveRover[0], this.y + moveRover[1]];
+  }
+
+  applyTurnCommand(command: Turn): Direction {
     const indexOfNewDir = turnDirection(
       directions.indexOf(this.direction),
       command == turnCommands[0] ? -1 : 1
     );
-    this.setDirection(directions[indexOfNewDir]);
-    return true;
+    return directions[indexOfNewDir];
   }
 }
 
