@@ -89,7 +89,8 @@ describe('Mars rover testing', () => {
           [4, 2],
           [7, 4],
         ]);
-        expect(r.applyCommands('FLB')).toEqual('(1, 3) EAST STOPPED');
+        r.applyCommands('FLB');
+        expect(r.getLocationAsString()).toEqual('(1, 3) EAST STOPPED');
       }
     );
 
@@ -103,7 +104,8 @@ describe('Mars rover testing', () => {
           [3, 5],
           [7, 4],
         ]);
-        expect(r.applyCommands('LFFFLF')).toEqual('(4, 5) WEST STOPPED');
+        r.applyCommands('LFFFLF');
+        expect(r.getLocationAsString()).toEqual('(4, 5) WEST STOPPED');
       }
     );
   });
