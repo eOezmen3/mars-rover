@@ -1,3 +1,7 @@
+type Direction = 'NORTH' | 'EAST' | 'SOUTH' | 'WEST';
+type Move = 'F' | 'B';
+type Turn = 'L' | 'R';
+
 const commandsLookup = {
   NORTHF: [0, 1],
   NORTHB: [0, -1],
@@ -9,4 +13,4 @@ const commandsLookup = {
   WESTB: [1, 0],
 };
 
-export { commandsLookup };
+export { commandsLookup, Direction, Move, Turn };
