@@ -31,7 +31,9 @@ class Rover {
     return ['(', this.x, ', ', this.y, ') ', this.direction].join('');
   }
 
-  applyCommands(commands: (Move | Turn)[]): void {
+  applyCommands(commands: string): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
     [...commands].every((c) => this.applySingleCommand(c));
   }
 

@@ -1,5 +1,5 @@
 import { Rover } from '../rover';
-import { commandsLookup, Move } from '../navigator';
+import { commandsLookup, Move, Turn } from '../navigator';
 
 describe('Mars rover testing', () => {
   describe('Mars rover and its utilizer should be created correctly', () => {
@@ -76,5 +76,35 @@ describe('Mars rover testing', () => {
       r.applyCommands('FLFFFRFLB');
       expect(r.getLocationAsString()).toEqual('(6, 4) NORTH');
     });
+  });
+
+  describe('rover stoppes before obstacle', () => {
+    test(
+      'Rover should stop before obstacles are encountered and' +
+        'provide appropiate location message',
+      () => {
+        const r = new Rover(1, 3, 'EAST');
+        r.setObstacles([
+          [2, 3],
+          [4, 2],
+          [7, 4],
+        ]);
+        expect(r.applyCommands('FLB')).toEqual('(1, 3) EAST STOPPED');
+      }
+    );
+
+    test(
+      'Rover should stop before obstacles are encountered and' +
+        'provide appropiate location message',
+      () => {
+        const r = new Rover(4, 2, 'EAST');
+        r.setObstacles([
+          [1, 4],
+          [3, 5],
+          [7, 4],
+        ]);
+        expect(r.applyCommands('LFFFLF')).toEqual('(4, 5) WEST STOPPED');
+      }
+    );
   });
 });
