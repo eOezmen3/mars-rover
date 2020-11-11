@@ -69,4 +69,12 @@ describe('Mars rover testing', () => {
       });
     }
   );
+
+  describe('Apply a sequence of commands correctly', () => {
+    test('Rover should apply the command F to move forward ', () => {
+      const r = new Rover(4, 2, 'EAST');
+      r.applyCommands('FLFFFRFLB');
+      expect(r.getLocationAsString()).toEqual('(6, 4) NORTH');
+    });
+  });
 });
